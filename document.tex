@@ -1,0 +1,202 @@
+\documentclass[12pt, oneside, a4paper]{article}
+
+\usepackage[utf8]{inputenc}     % kodowanie na UTF-8
+\usepackage[polish]{babel}
+\usepackage{csquotes}
+\usepackage[
+    style=alphabetic, % numeric, alphabetic, authoryear, 
+    backend=biber,]{biblatex}
+\addbibresource{bibliografia.bib}   % dołączenie pliku bibliografi 
+
+
+\usepackage[T1]{fontenc}           % ,,europejski'' układ fontów (Cork)
+%\usepackage[OT4,plmath]{polski}   % Zestaw czcionek
+\usepackage{times}                 % Times - Czcionki wektorowe
+\usepackage{graphicx}              % Wstawianie grafiki
+\usepackage{geometry}              % 
+\usepackage[usenames]{color}       % Palety kolorów zdefionwanych
+\usepackage{fancyhdr}              %
+%\usepackage{titlesec}              %
+%\usepackage{tocloft}               %
+\usepackage{amsmath}               % Moduł matematyczny AMS
+\usepackage{amsfonts}              % pakiet czcionek AMS
+\usepackage{amsthm}                % Definicje matematyczne AMS
+\usepackage[dvipsnames,svgnames]{xcolor}    % Zestaw kolorów             
+\usepackage{indentfirst}           % uzyskanie wcięcia przy pierwszym akapicie
+\usepackage{nameref}               % pakiet referencji do pełnych nazw rozdziałów
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{footnote}
+
+
+\usepackage[dvipsnames,svgnames]{xcolor}
+  % zdefiniowane kolory dla formatowania linków, bibliografi oraz spisu treści
+  \definecolor{wine}{RGB}{149,56,56}
+  \definecolor{wine-stain}{RGB}{200,125,125}
+  \definecolor{grass-green}{RGB}{53,161,103}
+  \definecolor{ocean-blue}{RGB}{9,63,97}
+
+
+\usepackage{indentfirst}   % uzyskanie wcięcia przy pierwszym akapicie
+\usepackage[
+  font=small,
+  format=hang,
+  labelformat=simple,
+  justification=justified,
+  labelsep=colon]{caption}       % pakiet dla podpisów np: dla lstlintings
+\usepackage{nameref}       % pakiet referencji do pełnych nazw rozdziałów
+\usepackage{enumerate}
+\usepackage{multirow}      % pakiet dla łaczenia wierszy w tabelach
+\usepackage[framemethod=tikz]{mdframed}     % pakiet zastępujący mało modalny \fbox
+\usepackage{listings}      % pakiet dla kodów zródłowych
+
+
+%------------------------------------------------------------------
+
+% Dodanie komendy dla caption + source
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1%
+    \\\hspace{\linewidth}%
+    {Źródło:} #2%
+  }%
+}
+
+% Wydruk kodu latexa w ramce
+\newmdenv[
+    skipabove=0.2cm,
+    skipbelow=0,
+    nobreak=true]{outputbox}
+
+%------------------------------------------------------------------
+
+\lstloadlanguages{TeX}
+\lstset{
+  literate={ą}{{\k{a}}}1
+           {ć}{{\'c}}1
+           {ę}{{\k{e}}}1
+           {ó}{{\'o}}1
+           {ń}{{\'n}}1
+           {ł}{{\l{}}}1
+           {ś}{{\'s}}1
+           {ź}{{\'z}}1
+           {ż}{{\.z}}1
+           {Ą}{{\k{A}}}1
+           {Ć}{{\'C}}1
+           {Ę}{{\k{E}}}1
+           {Ó}{{\'O}}1
+           {Ń}{{\'N}}1
+           {Ł}{{\L{}}}1
+           {Ś}{{\'S}}1
+           {Ź}{{\'Z}}1
+           {Ż}{{\.Z}}1,
+  language=bash,
+  captionpos=t,
+  tabsize=3,
+  frame=lines,
+  keywordstyle=\color{blue},
+  commentstyle=\color{darkgreen},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\textnormal,
+  numbersep=12pt,
+  breaklines=true,
+  showstringspaces=false,
+  basicstyle=\ttfamily,
+  emph={label}
+}
+
+%---------------------------------------------------------------------------
+
+\theoremstyle{plain}
+\newtheorem{thm}{Twierdzenie}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Założenie}
+\newtheorem*{cor}{Wniosek}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definicja}
+\newtheorem{conj}{Przypuszczenie}[section]
+\newtheorem{exmp}{Przykład}[section]
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+
+%---------------------------------------------------------------------------
+
+% Ustawienie linkowania dokumetu oraz elementów wyświetlania pdfa (4.7.4 z latex w 129 minut)
+\usepackage{hyperref}
+\hypersetup{
+  unicode=true,           % używać znaków z alfabetów niełacińskich zakładkach Acrobata
+  pdftoolbar=true,        % show Acrobat’s toolbar?
+  pdfmenubar=true,        % show Acrobat’s menu?
+  pdffitwindow=false,     % window fit to page when opened
+  pdfstartview={FitH},    % fits the width of the page to the window
+  pdftitle={},                % title
+  pdfauthor={Maciej Sypień},  % author
+  pdfsubject={Subject},       % subject of the document
+  pdfcreator={Creator},       % creator of the document
+  pdfproducer={Producer},     % producer of the document
+  pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+  pdfnewwindow=true,          % links in new window
+  linktoc=page,                % Ustawienie linków dla bibliografi (none, all, page, section)
+  colorlinks=true,            % false: boxed links; true: colored links
+  linkcolor=wine,             % color of internal links (change box color with linkbordercolor)
+  citecolor=grass-green,      % color of links to bibliography
+  filecolor=magenta,          % color of file links
+  urlcolor=ocean-blue,        % color of external links
+}
+
+%---------------------------------------------------------------------------
+% Definicje własnych, nowych makr
+
+% poniższe makra wymagają pakietu 'xcolor'
+\newcommand{\red}[1]{{\color{RedOrange}{#1}}}
+\newcommand{\yellow}[1]{{\color{Dandelion}{#1}}}
+\newcommand{\green}[1]{{\color{LimeGreen}{#1}}}
+\newcommand{\RED}[1]{{\colorbox{RedOrange}{#1}}}
+\newcommand{\YELLOW}[1]{{\colorbox{Dandelion}{#1}}}
+\newcommand{\GREEN}[1]{{\colorbox{LimeGreen}{#1}}}
+
+%---------------------------------------------------------------------------
+
+\title{
+	\LARGE{Uniwersytet Ekonomiczny w Krakowie}\\
+	\vspace{0,3cm}
+	\Large{Wydział Zarządzania}\\
+	\vspace{1,5cm}
+	\Huge{Możliwości promocji w najpopularniejszych mediach społecznościowych}
+	\vspace{0,5cm}
+}
+\author{Łukasz Suder\\ Maciej Sypień}
+\date{\today}
+
+%---------------------------------------------------------------------------
+
+\begin{document}
+\nocite{*}     % wszystkie pozycje z bibliografii
+
+\maketitle     % tworzy tytuł + imiona autorów + datę
+
+\begin{abstract}
+Dokument ten prezentuje możliwości działań promocyjnych firm w~najpopularniejszych mediach społecznościowych.\\
+Praca została przygotowana w systemie składowania tekstu \LaTeXe .
+\end{abstract}
+
+\clearpage
+\tableofcontents     % wstawia spis treści
+\clearpage
+
+%---------------------------------------------------------------------------
+
+\include{cha_wstep}
+
+%---------------------------------------------------------------------------
+%\clearpage
+
+\printbibliography
+
+\end{document}
+
+\end{document}
