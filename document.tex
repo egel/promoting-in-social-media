@@ -159,6 +159,22 @@
 \newcommand{\YELLOW}[1]{{\colorbox{Dandelion}{#1}}}
 \newcommand{\GREEN}[1]{{\colorbox{LimeGreen}{#1}}}
 
+
+% Lowercase \nameref = \lnameref
+\newcommand{\lnameref}[1]{%
+\bgroup
+\let\nmu\MakeLowercase
+\nameref{#1}\egroup}
+
+% First UpperCase then lowercase = \fnameref
+\newcommand{\fnameref}[1]{%
+\bgroup
+\def\nmu{\let\nmu\MakeLowercase}%
+\nameref{#1}\egroup}
+
+% helper for lowercase newcommands
+\newcommand{\nmu}{}
+
 %---------------------------------------------------------------------------
 
 \title{
