@@ -1,12 +1,13 @@
 ## Markdown compilation files
 README.html
 
+## Texmaker session files
+*.tks
 
 ## Exclude some unnecessary folders
 images/
 !images/*
 images/not-used-photos/*
-
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
