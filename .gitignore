@@ -5,9 +5,9 @@ README.html
 *.tks
 
 ## Exclude some unnecessary folders
-images/
-!images/*
-images/not-used-photos/*
+images/not-used-photos/
+
+
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
