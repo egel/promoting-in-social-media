@@ -7,8 +7,6 @@ README.html
 ## Exclude some unnecessary folders
 images/not-used-photos/
 
-
-
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
