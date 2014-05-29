@@ -9,5 +9,24 @@ The publication is written in our native language (Polski). It describes opportu
   - Latex!
 
 
+## Convert to .doc or .odt
+
+Install for example `pandoc` program
+
+```
+$ sudo apt-get install pandoc
+```
+
+Then convert your file by:
+
+```
+$ pandoc -s document.tex -o document.odt
+```
+
+or
+```
+$ pandoc -s document.tex -o document.docx
+```
+
 ## Licence
 All rights reserved!
