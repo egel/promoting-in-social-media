@@ -6,8 +6,8 @@
 \usepackage[
     style=alphabetic, % numeric, alphabetic, authoryear, 
     backend=biber,]{biblatex}
-\addbibresource{bibliografia.bib}   % dołączenie pliku bibliografi 
-
+\addbibresource{bibliografia_maciek.bib}  % dołączenie plików bibliografii
+\addbibresource{bibliografia_lukasz.bib}
 
 \usepackage[T1]{fontenc}           % ,,europejski'' układ fontów (Cork)
 %\usepackage[OT4,plmath]{polski}   % Zestaw czcionek
@@ -201,7 +201,9 @@ Praca została przygotowana w systemie składowania tekstu \LaTeXe .
 \end{abstract}
 
 \clearpage
+
 \tableofcontents     % wstawia spis treści
+
 \clearpage
 
 %---------------------------------------------------------------------------
@@ -212,10 +214,10 @@ Praca została przygotowana w systemie składowania tekstu \LaTeXe .
 \include{cha_podsumowanie}
 
 %---------------------------------------------------------------------------
-%\clearpage
+
+\listoffigures
+\clearpage
 
 \printbibliography
-
-\end{document}
 
 \end{document}
