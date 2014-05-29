@@ -4,6 +4,10 @@ README.html
 ## Texmaker session files
 *.tks
 
+## Opendoc/Word compiled versions
+*.doc
+*.odt
+
 ## Exclude some unnecessary folders
 images/not-used-photos/
 
