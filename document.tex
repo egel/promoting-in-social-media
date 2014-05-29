@@ -175,6 +175,17 @@
 % helper for lowercase newcommands
 \newcommand{\nmu}{}
 
+
+% Section Author
+\makeatletter
+\newcommand{\chapterauthor}[1]{%
+  {\parindent0pt\vspace2*{-25pt}%
+  \linespread{1.1}\large\scshape#1%
+  \par\nobreak\vspace*{35pt}}
+  \@afterheading%
+}
+\makeatother
+
 %---------------------------------------------------------------------------
 
 \title{
@@ -195,9 +206,11 @@
 
 \maketitle     % tworzy tytuł + imiona autorów + datę
 
+\vspace{1cm}
+
 \begin{abstract}
-Dokument ten prezentuje możliwości działań promocyjnych firm w~najpopularniejszych mediach społecznościowych.\\
-Praca została przygotowana w systemie składowania tekstu \LaTeXe .
+Dokument ten prezentuje możliwości jakie niosą ze sobą działania promocyjne dla firm w~najpopularniejszych mediach społecznościowych.\\
+Praca została złożona przez Maciej Sypień w systemie składowania tekstu \LaTeXe{}.
 \end{abstract}
 
 \clearpage
